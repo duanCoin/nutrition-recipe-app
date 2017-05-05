@@ -1,0 +1,24 @@
+footer {
+    height: 80px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: #ece8cf;
+    width: 100%;
+    text-align: center;
+    padding-top: 15px;
+    color: #959595;
+}
+
+#divFooter {
+    margin-top: 8px;
+}
+
+a, span{
+    margin-right: 20px;
+}
+
+.footerA:link {text-decoration: none;}
+.footerA:visited {text-decoration: none;}
+.footerA:active {text-decoration: none;}
+.footerA:hover {text-decoration: none;}

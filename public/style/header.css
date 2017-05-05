@@ -1,0 +1,16 @@
+.header {
+    margin-top: 0;
+    height: 80px;
+    background-color: #ece8cf;
+}
+
+.logo {
+    margin-left: 80px;
+    width: 100px;
+    height: 80px;
+}
+
+h3 {
+    display: inline-block;
+}
+
