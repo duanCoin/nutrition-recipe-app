@@ -2,6 +2,7 @@
     margin-top: 0;
     height: 80px;
     background-color: #ece8cf;
+    margin-bottom: 20px;
 }
 
 .logo {
@@ -11,6 +12,7 @@
 }
 
 h3 {
+
     display: inline-block;
 }
 

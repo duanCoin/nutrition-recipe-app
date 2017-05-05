@@ -39,15 +39,20 @@ class Home extends React.Component {
       '<h4>&emsp;&emsp;早餐：菜包子、牛奶（或豆奶）。&emsp;中餐：米饭、炒菜花、辣子鸡丁，香菇青菜汤。&emsp;晚餐：芹菜肉包子、西红柿炒鸡蛋、肉末烧豆腐。</h4>' +
       '<h3>星期六</h3>' +
       '<h4>&emsp;&emsp;早餐：面包、牛奶（或豆奶）、煎鸡蛋1个。&emsp;中餐：米饭、五香鱼、黄豆芽炒胡萝卜、香菇汤。&emsp;晚餐：馒头，玉米粥、番茄炒蛋、鱼香肉丝。</h4>' +
-      '<h3>星期天</h3>'
+      '<h3>星期天</h3>' +
       '<h4>&emsp;&emsp;早餐：花卷、牛奶（或豆奶）、煮鸡蛋1个。&emsp;中餐：米饭 黑木耳炒鸡丁、糖醋白菜、南瓜汤。&emsp;晚餐：韭菜猪肉饺子、豆豉油麦菜、肉末炒豇豆。</h4>';
+
+  }
+
+  onClickAllNutRec() {
+    document.getElementById('nutRec').innerHTML = '<div>{menuList}</div>';
   }
 
   render() {
-    const menuList = this.state.nutRecInfo.map((item,index)=> {
-      return <div key={index}>
-        {item.name}
-        <img src={item.url}/>
+    const menuList = this.state.nutRecInfo.map((item, index)=> {
+      return <div key={index} className="menu-div">
+        <img className="recipe-img" src={item.url}/>
+        <center>{item.name}</center>
       </div>
     });
 
@@ -64,8 +69,8 @@ class Home extends React.Component {
       <div className="nav-center">
         <ul className="nav nav-pills">
           <li className="dropdown">
-            <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-              分类 <span className="caret"></span>
+            <a className="dropdown-toggle">
+              分类 <span className="caret"> </span>
             </a>
             <ul className="dropdown-menu">
               <li><a href="#">粥</a></li>
@@ -76,10 +81,11 @@ class Home extends React.Component {
             </ul>
           </li>
           <li><a href="#" onClick={this.onClickNutRec.bind(this)}>营养食谱</a></li>
+          <li><a href="#" onClick={this.onClickAllNutRec.bind(this)}>菜谱大全</a></li>
         </ul>
       </div>
 
-      <div className="well home-content" id="nutRec">{menuList}</div>
+      <div className="home-content" id="nutRec">{menuList}</div>
     </div>
   }
 }
@@ -98,5 +104,3 @@ class App extends React.Component {
   }
 }
 export default App;
-
-
