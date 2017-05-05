@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './header.js';
 import Footer from './footer.js';
+import {DropdownButton} from 'react-bootstrap';
 var superAgent = require('superagent');
 require('../../style/login-page.css');
 
@@ -48,6 +49,11 @@ class Home extends React.Component {
     document.getElementById('nutRec').innerHTML = '<div>{menuList}</div>';
   }
 
+  onClickButton(){
+    var inputName = document.getElementById("input").value;
+    alert(inputName);
+  }
+
   render() {
     const menuList = this.state.nutRecInfo.map((item, index)=> {
       return <div key={index} className="menu-div">
@@ -57,10 +63,10 @@ class Home extends React.Component {
     });
 
     return <div className="container login">
-      <div className="input-group content-center" id="input">
-        <input type="text" className="form-control"/>
+      <div className="input-group content-center" id="div-input">
+        <input type="text" id="input" className="form-control"/>
         <span className="input-group-btn">
-					<button className="btn btn-default" type="button">
+					<button className="btn btn-default" type="button"  onClick={this.onClickButton.bind(this)}>
 						Go!
 					</button>
 				</span>
@@ -69,7 +75,7 @@ class Home extends React.Component {
       <div className="nav-center">
         <ul className="nav nav-pills">
           <li className="dropdown">
-            <a className="dropdown-toggle">
+            <a className="dropdown-toggle" data-toggle="dropdown" href="#">
               分类 <span className="caret"> </span>
             </a>
             <ul className="dropdown-menu">
@@ -84,6 +90,7 @@ class Home extends React.Component {
           <li><a href="#" onClick={this.onClickAllNutRec.bind(this)}>菜谱大全</a></li>
         </ul>
       </div>
+
 
       <div className="home-content" id="nutRec">{menuList}</div>
     </div>
