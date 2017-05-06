@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 
 class MenuList extends React.Component {
     handleClick(id){
@@ -8,7 +9,6 @@ class MenuList extends React.Component {
     render() {
         return <div>
             {this.props.menuPro.map((item, index)=> {
-                console.log(item)
                 return <div key={index} className="menu-div" onClick={this.handleClick.bind(this, item.id)}>
                     <img className="recipe-img" src={item.url}/>
                     <center>{item.name}</center>

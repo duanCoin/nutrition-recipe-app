@@ -7,8 +7,8 @@ import Recipe from "./components/Recipe";
 render(
   <Router history={browserHistory}>
     <Route path="/" component={App}/>
-      <Route path='/recipe'>
-        <Route path=":id" component={Recipe}/>
-      </Route>
+    <Route path='/recipe'>
+      <Route path=":id" component={Recipe}/>
+    </Route>
   </Router>
   , document.getElementById("app"));

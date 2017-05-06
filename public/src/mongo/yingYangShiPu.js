@@ -1,4 +1,4 @@
-[
+const nutrition = [
   {
     "date": "星期一",
     "breakfast": "早餐：馒头，牛奶（或豆奶）、煮荷包蛋1个、酱黄瓜。",
@@ -15,31 +15,33 @@
     "date": "星期三",
     "breakfast": "早餐：窝窝头、牛奶（或豆奶）、卤蛋1个、豆腐乳。",
     "lunch": "中餐：米饭、肉末茄子、鸭子海带汤。",
-    "supper": "晚餐：干煸豆角、稀饭、豆沙包、青椒肉丝。",
+    "supper": "晚餐：干煸豆角、稀饭、豆沙包、青椒肉丝。"
   },
   {
     "date": "",
     "breakfast": "",
     "lunch": "",
-    "supper": "",
+    "supper": ""
   },
   {
     "date": "",
     "breakfast": "",
     "lunch": "",
-    "supper": "",
+    "supper": ""
   },
   {
     "date": "",
     "breakfast": "",
     "lunch": "",
-    "supper": "",
+    "supper": ""
   },
   {
     "date": "",
     "breakfast": "",
     "lunch": "",
-    "supper": "",
-  },
+    "supper": ""
+  }
 
-]
+];
+
+export default nutrition;
