@@ -7,7 +7,7 @@ class Recipe extends React.Component {
     super(props);
     this.state = {
       name: '',
-      img: '',
+      url: '',
       material: '',
       practice: ''
     }
@@ -15,14 +15,15 @@ class Recipe extends React.Component {
 
   componentDidMount() {
     superAgent
-      .get(`/selectRecipe/${url.id}`)
+      .get(`/selectRecipe/1`)
       .end((err, res) => {
         if (err) {
           return;
         }
+        console.log(res.body)
         this.setState({
           name: res.body.name,
-          img: res.body.img,
+          img: res.body.url,
           material: res.body.material,
           practice: res.body.practice,
         });
@@ -34,7 +35,7 @@ class Recipe extends React.Component {
     return (
       <div className="container recipe-detail">
         <h2>{this.state.name}</h2>
-        <img src={this.state.img}/>
+        <img src={this.state.url}/>
         <h3>原料：{this.state.material}</h3>
         <h3>做法：{this.state.practice}</h3>
       </div>

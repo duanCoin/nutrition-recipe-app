@@ -21,9 +21,11 @@ const findBySort = function (req, res) {
 };
 
 const findById = function (req, res) {
+  console.log('==============');
   MongoClient.connect(DB_CONN_STR, function (err, db) {
     const collection = db.collection('recipe');
-    const whereStr = {name: req.params.id};
+    console.log({id: req.params.id})
+    const whereStr = {id: req.params.id};
 
     collection.find(whereStr).toArray(function (err, result) {
       if (err) {
@@ -38,3 +40,4 @@ const findById = function (req, res) {
 };
 
 module.exports={findById,findBySort};
+// module.exports={findById};

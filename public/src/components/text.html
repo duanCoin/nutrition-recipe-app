@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>test</title>
+    <meta charset="utf-8">
+    <title>Bootstrap 实例 - 下拉菜单（Dropdowns）</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<style type="text/css">
-    .recipe-detail{
-        width: 50%;
-        border-radius: 10px;
-        border: #c0c0c0 solid 3px;
-        margin-top: 40px;
-        padding: 0;
-    }
-</style>
 <body>
-<div class="recipe-detail">
-<h2>宫保鸡丁</h2>
-<image src="https://raw.githubusercontent.com/duanCoin/nutrition-recipes-image/master/image/%E4%B9%8C%E9%B8%A1%E9%A6%99%E8%8F%87%E7%BA%A2%E6%9E%A3%E6%B1%A4.jpg"></image>
-    <h3>原料：最后，糖的粗细。在曲奇的配方中，细砂糖和糖粉是同时存在的，这是为了平衡曲奇的延展性。只用糖粉的曲奇</h3>
-    <h3>做法：1. 曲奇饼干，很受欢迎的一款烘焙食品。 2. 不管是大人，还是小孩，都难以抵制对它的诱惑。商场曲奇饼干，一罐也不便宜，真是舍不得买。 3. 每次小家伙想要的时候，我就对她说，“回去，妈妈给你做”小家伙倒也蛮听话，屁颠屁颠的就跟我走了。曲奇饼干，也做过好多</h3>
+
+<div class="nav-center">
+    <ul class="nav nav-pills">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                分类 <span class="caret"> </span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">粥</a></li>
+                <li><a href="#">汤</a></li>
+                <li><a href="#">甜点</a></li>
+                <li><a href="#">面食</a></li>
+                <li><a href="#">家常菜</a></li>
+            </ul>
+        </li>
+        <li><a href="#" onClick={this.onClickNutRec.bind(this)}>营养食谱</a></li>
+        <li><a href="#" onClick={this.onClickAllNutRec.bind(this)}>菜谱大全</a></li>
+    </ul>
 </div>
+
 </body>
 </html>
