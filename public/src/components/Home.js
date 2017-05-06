@@ -1,6 +1,7 @@
 import React from 'react';
 var superAgent = require('superagent');
 require('../../style/login-page.css');
+import MenuList from './MenuList';
 import { browserHistory } from 'react-router';
 
 class Home extends React.Component {
@@ -25,7 +26,7 @@ class Home extends React.Component {
   }
 
   onClickNutRec() {
-    document.getElementById('nutRec').innerHTML = '<h3>星期一</h3>' +
+    document.getElementsByTagName("MenuList")[0].menuList.value = '<h3>星期一</h3>' +
       '<h4>&emsp;&emsp;早餐：馒头，牛奶（或豆奶）、煮荷包蛋1个、酱黄瓜。&emsp;中餐：米饭、香菇菜心、糖醋带鱼、丝瓜汤。&emsp;晚餐：绿豆粥、白菜猪肉包子、虾皮冬瓜。</h4>' +
       '<h3>星期二</h3>' +
       '<h4>&emsp;&emsp;早餐：肉包子、牛奶（或豆奶）、咸鸭蛋（半个）。&emsp; 中餐：馒头、黄豆烧牛肉、干煸四季豆、鸡蛋汤。&emsp;晚餐：炒面、清炒菠菜、青椒土豆丝。</h4>' +
@@ -51,18 +52,7 @@ class Home extends React.Component {
     alert(inputName);
   }
 
-  handleClick(id){
-    browserHistory.push(`/recipe/${id}`);
-  }
   render() {
-    const menuList = this.state.nutRecInfo.map((item, index)=> {
-      return <div key={index} className="menu-div" onClick={this.handleClick.bind(this,item.id)}>
-        <img className="recipe-img" src={item.url}/>
-        <center>{item.name}</center>
-      </div>
-
-    });
-
     return <div className="container login">
       <div className="input-group content-center" id="div-input">
         <input type="text" id="input" className="form-control"/>
@@ -92,8 +82,7 @@ class Home extends React.Component {
         </ul>
       </div>
 
-      <div className="home-content" id="nutRec">
-        {menuList}</div>
+      <MenuList className="home-content" id="nutRec" menuPro={this.state.nutRecInfo} />
     </div>
   }
 }
