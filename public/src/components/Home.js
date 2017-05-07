@@ -41,7 +41,10 @@ class Home extends React.Component {
 
   onClickZhou(e) {
     superAgent
-        .get(`/selectRecipe/${e.target.value}`)
+        .get(`/selectRecipe`)
+      .query({
+        sort:`${e.target.id}`
+      })
         .end((err, res) => {
           if (err) {
             return;
@@ -72,7 +75,7 @@ class Home extends React.Component {
             </a>
             <ul className="dropdown-menu">
               <li><a href="/">全部</a></li>
-              <li><a value="粥" href="#" onClick={this.onClickZhou.bind(this)}>粥</a></li>
+              <li><a id="粥" onClick={this.onClickZhou.bind(this)}>粥</a></li>
               <li><a href="#">汤</a></li>
               <li><a href="#">甜点</a></li>
               <li><a href="#">面食</a></li>

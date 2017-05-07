@@ -5,9 +5,8 @@ const DB_CONN_STR = 'mongodb://localhost:27017/menu';
 
 const findBySort = function (req, res) {
   MongoClient.connect(DB_CONN_STR, function (err, db) {
-    const collection = db.collection('recipe');
-    console.log(req.query.sort)
-    const whereStr = {sort: req.params.sort};
+    const collection = db.collection('menu');
+    const whereStr = {sort: req.query.sort};
 
     collection.find(whereStr).toArray(function (err, result) {
       if (err) {
@@ -22,7 +21,6 @@ const findBySort = function (req, res) {
 };
 
 const findById = function (req, res) {
-  console.log('==============');
   MongoClient.connect(DB_CONN_STR, function (err, db) {
     const collection = db.collection('recipe');
     console.log({id: req.params.id})
