@@ -56,6 +56,74 @@ class Home extends React.Component {
         })
   }
 
+  onClickTang(e) {
+    superAgent
+        .get(`/selectRecipe`)
+        .query({
+          sort:`${e.target.id}`
+        })
+        .end((err, res) => {
+          if (err) {
+            return;
+          }
+          // this.setState({
+          //   nutRecInfo: res.body
+          // });
+          console.log(res.body);
+        })
+  }
+
+  onClickDesert(e) {
+    superAgent
+        .get(`/selectRecipe`)
+        .query({
+          sort:`${e.target.id}`
+        })
+        .end((err, res) => {
+          if (err) {
+            return;
+          }
+          // this.setState({
+          //   nutRecInfo: res.body
+          // });
+          console.log(res.body);
+        })
+  }
+
+  onClickMian(e) {
+    superAgent
+        .get(`/selectRecipe`)
+        .query({
+          sort:`${e.target.id}`
+        })
+        .end((err, res) => {
+          if (err) {
+            return;
+          }
+          // this.setState({
+          //   nutRecInfo: res.body
+          // });
+          console.log(res.body);
+        })
+  }
+
+  onClickCai(e) {
+    superAgent
+        .get(`/selectRecipe`)
+        .query({
+          sort:`${e.target.id}`
+        })
+        .end((err, res) => {
+          if (err) {
+            return;
+          }
+          // this.setState({
+          //   nutRecInfo: res.body
+          // });
+          console.log(res.body);
+        })
+  }
+
   render() {
     return <div className="container login">
       <div className="input-group content-center" id="div-input">
@@ -76,10 +144,10 @@ class Home extends React.Component {
             <ul className="dropdown-menu">
               <li><a href="/">全部</a></li>
               <li><a id="粥" onClick={this.onClickZhou.bind(this)}>粥</a></li>
-              <li><a href="#">汤</a></li>
-              <li><a href="#">甜点</a></li>
-              <li><a href="#">面食</a></li>
-              <li><a href="#">家常菜</a></li>
+              <li><a id="汤" onClick={this.onClickTang.bind(this)}>汤</a></li>
+              <li><a id="甜点" onClick={this.onClickDesert.bind(this)}>甜点</a></li>
+              <li><a id="面食" onClick={this.onClickMian.bind(this)}>面食</a></li>
+              <li><a id="家常菜" onClick={this.onClickCai.bind(this)}>家常菜</a></li>
             </ul>
           </li>
           <li>
