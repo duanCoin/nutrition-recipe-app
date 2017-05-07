@@ -20,10 +20,10 @@ class Recipe extends React.Component {
         if (err) {
           return;
         }
-        console.log(res.body)
+        // console.log(res.body)
         this.setState({
           name: res.body.name,
-          img: res.body.url,
+          url: res.body.url,
           material: res.body.material,
           practice: res.body.practice,
         });
