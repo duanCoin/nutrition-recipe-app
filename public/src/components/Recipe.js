@@ -3,14 +3,14 @@ require('../../style/recipe.css');
 var superAgent = require('superagent');
 
 class Recipe extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      detail:{}
+    this.state = {
+      detail: []
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     superAgent
       .get(`/selectRecipe/${parseInt(this.props.params.id)}`)
       .end((err, res) => {
@@ -25,7 +25,7 @@ class Recipe extends React.Component {
   }
 
   render() {
-    const detail = this.state.detail.map((item)=>{
+    const detail = this.state.detail.map((item)=> {
       return (
         <div className="container recipe-detail">
           <h2>{item.name}</h2>
@@ -35,7 +35,9 @@ class Recipe extends React.Component {
         </div>
       );
     });
-    {detail}
+    return <div>
+      {detail}
+    </div>
   }
 }
 
