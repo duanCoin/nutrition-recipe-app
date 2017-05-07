@@ -12,10 +12,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler));
 const selectMenu = require('./public/src/mongo/menu/selectMenu');
 const selectRecipe = require('./public/src/mongo/recipe/selectRecipe');
+const selectRecipeDetail = require('./public/src/mongo/recipe/selectRecipeDetail');
 
 app.use('/selectMenu', selectMenu.findAll);
-app.use('/selectRecipe/:sort', selectRecipe.findBySort);
-app.use('/selectRecipe/1', selectRecipe.findById);
+app.use('/selectRecipe', selectRecipe.findBySort);
+app.use('/selectRecipe/:id', selectRecipeDetail.findDetail);
 
 app.use(express.static('public'));
 

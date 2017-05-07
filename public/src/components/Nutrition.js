@@ -1,5 +1,6 @@
 import React from 'react';
 var nutrition = require("../mongo/yingYangShiPu.js");
+
 class Nutrition extends React.Component {
 
   render() {

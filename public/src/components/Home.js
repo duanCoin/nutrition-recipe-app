@@ -3,7 +3,6 @@ var superAgent = require('superagent');
 require('../../style/login-page.css');
 import MenuList from './MenuList';
 import Nutrition from './Nutrition';
-import {browserHistory} from 'react-router';
 
 class Home extends React.Component {
   constructor(props) {
@@ -28,7 +27,6 @@ class Home extends React.Component {
   }
 
   onClickNutRec() {
-    browserHistory.push("/nutrition");
     this.setState({
       content: 1
     });
@@ -36,7 +34,23 @@ class Home extends React.Component {
 
   onClickButton() {
     var inputName = document.getElementById("input").value;
-    alert(inputName);
+    superAgent
+      .get('/selectMenu')
+      .query({
+        sort:inputName
+      })
+      .end((err, res) => {
+        if (err) {
+          return;
+        }
+        if(res.status === 404){
+          alert("none")
+        }
+        this.setState({
+          nutRecInfo: res.body
+        });
+      });
+
   }
 
   onClickZhou(e) {
@@ -49,10 +63,9 @@ class Home extends React.Component {
           if (err) {
             return;
           }
-          // this.setState({
-          //   nutRecInfo: res.body
-          // });
-          console.log(res.body);
+          this.setState({
+            nutRecInfo: res.body
+          });
         })
   }
 
@@ -75,7 +88,7 @@ class Home extends React.Component {
             </a>
             <ul className="dropdown-menu">
               <li><a href="/">全部</a></li>
-              <li><a id="粥" onClick={this.onClickZhou.bind(this)}>粥</a></li>
+              <li><a id="汤" onClick={this.onClickZhou.bind(this)}>汤</a></li>
               <li><a href="#">汤</a></li>
               <li><a href="#">甜点</a></li>
               <li><a href="#">面食</a></li>
