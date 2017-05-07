@@ -9,6 +9,8 @@ body {
     min-height: 450px;
     text-align: center;
     margin: auto;
+    width: 95%;
+    margin-bottom: 20px;
 }
 
 #div-input {
@@ -25,6 +27,7 @@ body {
 .nav-center {
     margin-left: 35%;
     width: 30%;
+    margin-bottom: 20px;
 }
 
 .home-content {
