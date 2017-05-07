@@ -12,12 +12,11 @@ class Recipe extends React.Component {
 
   componentDidMount() {
     superAgent
-      .get(`/selectRecipe/${parseInt(this.props.params.id)}`)
+      .get(`/selectDetail/${parseInt(this.props.params.id)}`)
       .end((err, res) => {
         if (err) {
           return;
         }
-        console.log(res.body)
         this.setState({
           detail: res.body
         });

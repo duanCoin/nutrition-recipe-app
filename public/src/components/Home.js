@@ -35,17 +35,19 @@ class Home extends React.Component {
   onClickButton() {
     var inputName = document.getElementById("input").value;
     superAgent
-      .get('/selectMenu')
+      .get('/selectRecipe/name')
       .query({
-        sort:inputName
+        name:inputName
       })
       .end((err, res) => {
+        if(res.status == 404){
+          alert("请输入正确的名称");
+          return;
+        }
         if (err) {
           return;
         }
-        if(res.status === 404){
-          alert("none")
-        }
+
         this.setState({
           nutRecInfo: res.body
         });
@@ -55,7 +57,7 @@ class Home extends React.Component {
 
   onClickZhou(e) {
     superAgent
-        .get(`/selectRecipe`)
+        .get(`/selectRecipe/sort`)
       .query({
         sort:`${e.target.id}`
       })
@@ -71,7 +73,7 @@ class Home extends React.Component {
 
   onClickTang(e) {
     superAgent
-        .get(`/selectRecipe`)
+        .get(`/selectRecipe/sort`)
         .query({
           sort:`${e.target.id}`
         })
@@ -79,16 +81,15 @@ class Home extends React.Component {
           if (err) {
             return;
           }
-          // this.setState({
-          //   nutRecInfo: res.body
-          // });
-          console.log(res.body);
+          this.setState({
+            nutRecInfo: res.body
+          });
         })
   }
 
   onClickDesert(e) {
     superAgent
-        .get(`/selectRecipe`)
+        .get(`/selectRecipe/sort`)
         .query({
           sort:`${e.target.id}`
         })
@@ -96,16 +97,15 @@ class Home extends React.Component {
           if (err) {
             return;
           }
-          // this.setState({
-          //   nutRecInfo: res.body
-          // });
-          console.log(res.body);
+          this.setState({
+            nutRecInfo: res.body
+          });
         })
   }
 
   onClickMian(e) {
     superAgent
-        .get(`/selectRecipe`)
+        .get(`/selectRecipe/sort`)
         .query({
           sort:`${e.target.id}`
         })
@@ -113,16 +113,15 @@ class Home extends React.Component {
           if (err) {
             return;
           }
-          // this.setState({
-          //   nutRecInfo: res.body
-          // });
-          console.log(res.body);
+          this.setState({
+            nutRecInfo: res.body
+          });
         })
   }
 
   onClickCai(e) {
     superAgent
-        .get(`/selectRecipe`)
+      .get(`/selectRecipe/sort`)
         .query({
           sort:`${e.target.id}`
         })
@@ -130,12 +129,22 @@ class Home extends React.Component {
           if (err) {
             return;
           }
-          // this.setState({
-          //   nutRecInfo: res.body
-          // });
-          console.log(res.body);
+          this.setState({
+            nutRecInfo: res.body
+          });
         })
   }
+
+//   superAgent
+// .get('/selectMenu')
+// .end((err, res) => {
+//   if (err) {
+//     return;
+//   }
+//   this.setState({
+//   nutRecInfo: res.body
+// });
+// });
 
   render() {
     return <div className="container login">

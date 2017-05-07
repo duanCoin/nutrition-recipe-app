@@ -15,8 +15,9 @@ const selectRecipe = require('./public/src/mongo/recipe/selectRecipe');
 const selectRecipeDetail = require('./public/src/mongo/recipe/selectRecipeDetail');
 
 app.use('/selectMenu', selectMenu.findAll);
-app.use('/selectRecipe', selectRecipe.findBySort);
-app.use('/selectRecipe/:id', selectRecipeDetail.findDetail);
+app.use('/selectDetail/:id', selectRecipeDetail.findDetail);
+app.use('/selectRecipe/name', selectRecipe.findByName);
+app.use('/selectRecipe/sort', selectRecipe.findBySort);
 
 app.use(express.static('public'));
 
