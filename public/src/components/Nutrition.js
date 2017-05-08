@@ -3,7 +3,7 @@ var nutrition = require("../mongo/yingYangShiPu.js");
 
 class Nutrition extends React.Component {
 
-  render() {
+  render() {  ///  婴幼儿期、儿童期、青少年期、成年期及老年期
     return <div>
       {nutrition.default.map((item,index)=> {
         return <div key={index}>

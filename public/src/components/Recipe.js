@@ -28,9 +28,11 @@ class Recipe extends React.Component {
       return (
         <div className="container recipe-detail">
           <h2>{item.name}</h2>
-          <img src={item.url}/>
-          <h3>原料：{item.material}</h3>
-          <h3>做法：{item.practice}</h3>
+          <img src={item.url} id="recipeImg"/>
+          <h3>原料：</h3>
+            <h4>&emsp; &emsp; {item.material}</h4>
+          <h3>做法：</h3>
+            <h4>&emsp; &emsp; {item.practice}</h4>
         </div>
       );
     });

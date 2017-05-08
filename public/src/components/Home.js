@@ -41,7 +41,7 @@ class Home extends React.Component {
       })
       .end((err, res) => {
         if(res.status == 404){
-          alert("请输入正确的名称");
+          alert("没有找到您要搜索的美食，可以点击'更多搜索'或'友情链接'继续搜索！");
           return;
         }
         if (err) {
@@ -55,71 +55,7 @@ class Home extends React.Component {
 
   }
 
-  onClickZhou(e) {
-    superAgent
-        .get(`/selectRecipe/sort`)
-      .query({
-        sort:`${e.target.id}`
-      })
-        .end((err, res) => {
-          if (err) {
-            return;
-          }
-          this.setState({
-            nutRecInfo: res.body
-          });
-        })
-  }
-
-  onClickTang(e) {
-    superAgent
-        .get(`/selectRecipe/sort`)
-        .query({
-          sort:`${e.target.id}`
-        })
-        .end((err, res) => {
-          if (err) {
-            return;
-          }
-          this.setState({
-            nutRecInfo: res.body
-          });
-        })
-  }
-
-  onClickDesert(e) {
-    superAgent
-        .get(`/selectRecipe/sort`)
-        .query({
-          sort:`${e.target.id}`
-        })
-        .end((err, res) => {
-          if (err) {
-            return;
-          }
-          this.setState({
-            nutRecInfo: res.body
-          });
-        })
-  }
-
-  onClickMian(e) {
-    superAgent
-        .get(`/selectRecipe/sort`)
-        .query({
-          sort:`${e.target.id}`
-        })
-        .end((err, res) => {
-          if (err) {
-            return;
-          }
-          this.setState({
-            nutRecInfo: res.body
-          });
-        })
-  }
-
-  onClickCai(e) {
+  onClickSort(e) {
     superAgent
       .get(`/selectRecipe/sort`)
         .query({
@@ -134,17 +70,6 @@ class Home extends React.Component {
           });
         })
   }
-
-//   superAgent
-// .get('/selectMenu')
-// .end((err, res) => {
-//   if (err) {
-//     return;
-//   }
-//   this.setState({
-//   nutRecInfo: res.body
-// });
-// });
 
   render() {
     return <div className="container login">
@@ -165,15 +90,15 @@ class Home extends React.Component {
             </a>
             <ul className="dropdown-menu">
               <li><a href="/">全部</a></li>
-              <li><a id="粥" onClick={this.onClickZhou.bind(this)}>粥</a></li>
-              <li><a id="汤" onClick={this.onClickTang.bind(this)}>汤</a></li>
-              <li><a id="甜点" onClick={this.onClickDesert.bind(this)}>甜点</a></li>
-              <li><a id="面食" onClick={this.onClickMian.bind(this)}>面食</a></li>
-              <li><a id="家常菜" onClick={this.onClickCai.bind(this)}>家常菜</a></li>
+              <li><a id="粥" onClick={this.onClickSort.bind(this)}>粥</a></li>
+              <li><a id="汤" onClick={this.onClickSort.bind(this)}>汤</a></li>
+              <li><a id="甜点" onClick={this.onClickSort.bind(this)}>甜点</a></li>
+              <li><a id="面食" onClick={this.onClickSort.bind(this)}>面食</a></li>
+              <li><a id="家常菜" onClick={this.onClickSort.bind(this)}>家常菜</a></li>
             </ul>
           </li>
           <li>
-            <a id="nutrition" onClick={this.onClickNutRec.bind(this)}>营养食谱</a>
+            <a id="nutrition" onClick={this.onClickNutRec.bind(this)}>营养搭配</a>
           </li>
         </ul>
       </div>
